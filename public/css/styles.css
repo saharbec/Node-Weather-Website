@@ -46,9 +46,9 @@ header a {
   margin-top:8px;
   padding: 12px;
   font-size: 16px;
-  border: 1px solid #ccc
+  border: 2px solid rgb(104, 102, 102)
 }
 
 #message-1 {
-  font-weight: bold
+  font-weight: bold 
 }
