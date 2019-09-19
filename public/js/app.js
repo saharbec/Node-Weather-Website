@@ -5,7 +5,7 @@ const info1Par = document.querySelector('#message-1');
 const info2Par = document.querySelector('#message-2');
 
 const fetchWeather = (location) => {
-  fetch(`http://localhost:3000/weather?address=${location}`)
+  fetch(`/weather?address=${location}`)
     .then(res => res.json())
     .then(data => renderInfo(data))
     .catch(err => renderInfo(err))

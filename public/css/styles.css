@@ -48,3 +48,7 @@ header a {
   font-size: 16px;
   border: 1px solid #ccc
 }
+
+#message-1 {
+  font-weight: bold
+}
