@@ -6,6 +6,7 @@ const info1Par = document.querySelector('#message-1');
 const info2Par = document.querySelector('#message-2');
 const infoContainer = document.querySelector('.info-container');
 const loadingMsg = document.createTextNode('Loading...');
+const errorMsg = document.createTextNode('');
 
 const fetchWeather = (location) => {
   fetch(`/weather?address=${location}`)
@@ -17,8 +18,10 @@ const fetchWeather = (location) => {
 const renderInfo = (data) => {
   loadingMsg.remove();
   if (data.error) {
-    return (info1Par.textContent = data.error)
+    errorMsg.textContent = data.error;
+    return (mainContent.appendChild(errorMsg))
   }
+  errorMsg.remove();
   infoContainer.style.display = 'block';
   const { summary, temperature, rainChance } = data.forecast;
   info1Par.textContent = (data.location);
@@ -26,8 +29,10 @@ const renderInfo = (data) => {
 }
 
 weatherForm.addEventListener('submit', (e) => {
+  infoContainer.style.display = 'none';
   const location = weatherInput.value;
   mainContent.appendChild(loadingMsg);
+  errorMsg.textContent = '';
   fetchWeather(location);
   weatherInput.value = '';
 
