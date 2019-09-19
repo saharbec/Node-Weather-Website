@@ -4,6 +4,7 @@ const weatherInput = document.querySelector('input');
 const infoDiv = document.querySelector('.container');
 const info1Par = document.querySelector('#message-1');
 const info2Par = document.querySelector('#message-2');
+const info3Par = document.querySelector('#message-3');
 const infoContainer = document.querySelector('.info-container');
 const loadingMsg = document.createTextNode('Loading...');
 const errorMsg = document.createTextNode('');
@@ -23,9 +24,11 @@ const renderInfo = (data) => {
   }
   errorMsg.remove();
   infoContainer.style.display = 'block';
-  const { summary, temperature, rainChance } = data.forecast;
+  const { summary, temperature, rainChance, humidity, windSpeed } = data.forecast;
+  console.log(humidity);
   info1Par.textContent = (data.location);
   info2Par.textContent = `${summary} It is ${temperature} degrees Celcius, with a ${rainChance}% of rain.`
+  info3Par.textContent = `The humidity currently stands on ${humidity}% and the wind speed is ${windSpeed}km/h.`
 }
 
 weatherForm.addEventListener('submit', (e) => {
