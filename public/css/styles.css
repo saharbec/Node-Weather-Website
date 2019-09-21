@@ -24,8 +24,15 @@ header {
 }
 
 h1 {
-  font-size: 64px;
-  margin-bottom: 16px;
+  font-size: 56px !important;
+  margin-bottom: 16px !important;
+  display: inline-block;
+}
+
+.weather-icon {
+  position:fixed;
+  width:6% !important;
+  left: 430px;
 }
 
 footer {
