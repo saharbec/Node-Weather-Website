@@ -4,7 +4,7 @@ const geoCode = (address, callback) => {
   if (typeof (address) !== 'string')
     return console.log('Please provide a real location');
 
-  const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=pk.eyJ1Ijoic2FoYXJiZWMiLCJhIjoiY2swbGdiMTBvMHRmODNjcG5vbDVvemxyMiJ9.O6ktpl6I4btPlb37JsJjDQ&limit=1`;
+  const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${process.env.MAPBOX_API_KEY}&limit=1`;
 
   request({ url, json: true }, (err, { body }) => {
     if (err) {
